@@ -1,0 +1,21 @@
+{
+  "name": "gui_webdriver",
+  "version": "1.0.0",
+  "description": "webdriver io",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio"
+  },
+  "author": "AWT01",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "wdio-mocha-framework": "^0.6.3",
+    "wdio-selenium-standalone-service": "0.0.10",
+    "wdio-spec-reporter": "^0.1.5",
+    "webdriverio": "^4.13.2"
+  },
+  "dependencies": {
+    "selenium-standalone": "^6.15.3"
+  }
+}
