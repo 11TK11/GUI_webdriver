@@ -1,0 +1,7 @@
+/.idea/
+/testresults/
+/node_modules/
+package-lock.json
+.DS_Store
+/errorShots/
+allure-results/

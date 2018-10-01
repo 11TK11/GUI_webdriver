@@ -1,0 +1,22 @@
+{
+  "name": "pivotal-webdriverio-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio",
+    "lint": "eslint . --cache --format node_modules/eslint-friendly-formatter --ext .js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint-plugin-webdriverio": "^1.0.1",
+    "wdio-allure-reporter": "^0.6.2",
+    "wdio-eslint-service": "0.0.3",
+    "wdio-mocha-framework": "^0.5.13",
+    "wdio-sauce-service": "^0.4.8",
+    "webdriverio": "^4.13.2"
+  }
+}

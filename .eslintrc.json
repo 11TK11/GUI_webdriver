@@ -1,0 +1,68 @@
+{
+  "plugins": [
+    "webdriverio"
+  ],
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true,
+    "webdriverio/wdio": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "eol-last": [
+      "error",
+      "always"
+    ],
+    "default-case": "error",
+    "no-eq-null": "error",
+    "no-empty-function": "error",
+    "no-lone-blocks": "error",
+    "no-magic-numbers": [
+      "error",
+      {
+        "ignore": [
+          0,
+          1
+        ],
+        "ignoreArrayIndexes": true
+      }
+    ],
+    "no-multi-spaces": "error",
+    "no-new": "error",
+    "no-new-func": "error",
+    "no-new-wrappers": "error",
+    "no-param-reassign": "error",
+    "no-proto": "error",
+    "no-redeclare": "error",
+    "no-self-assign": "error",
+    "no-self-compare": "error",
+    "space-before-blocks": "error",
+    "indent": [
+      "error",
+      4
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "curly": "error"
+  },
+  "globals": {
+    "sr": true,
+    "config": true,
+    "expect": true,
+    "theme": true
+  }
+}
