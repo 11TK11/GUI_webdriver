@@ -1,0 +1,26 @@
+sudo: required
+
+language: node_js
+
+node_js:
+- 8
+
+branches:
+only: develop
+
+addons:
+  sonarcloud:
+    organization: "carledriss-github"
+    token:
+      secure: $SONAR_TOKEN
+    github_token:
+      secure: $GITHUB_TOKEN
+    branches:
+    - develop
+script:
+- npm install
+- sonar-scanner
+- npm run lint
+
+notifications:
+  email: true
