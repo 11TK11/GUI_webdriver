@@ -1,5 +1,5 @@
 const Page = require('./Page');
-const Project = require('./Project');
+const waitingTime = 30000;
 class Dashboard extends Page {
     open() {
         super.open('/dashboard');
@@ -14,7 +14,7 @@ class Dashboard extends Page {
         browser.click('.tc-account-selector');
     }
     setAccountItem(account) {
-        browser.waitForVisible('.tc-account-selector__option-list',30000);
+        browser.waitForVisible('.tc-account-selector__option-list',waitingTime);
         browser.click(`li.tc-account-selector__option-account:nth-child(${account})`);
     }
     setProjectPrivacyRadio(privacy) {
