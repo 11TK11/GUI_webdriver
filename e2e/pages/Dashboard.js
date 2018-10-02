@@ -9,17 +9,29 @@ class Dashboard extends Page {
     setProjectNameTextField(projectName) {
         browser.setValue('.tc-form__input', projectName);
     }
-    clickSelectorAccount() {
+    clickSelectorAccountSelector() {
         browser.click('.tc-account-selector');
     }
-    clickAccountSelector() {
-        browser.click('.tc-account-selector__option-account-name');
+    setAccountItem(account) {
+        browser.waitForVisible('.tc-account-selector__option-list');
+        browser.click(`li:nth-child(${account})`);
     }
-    setProjectPrivacyRadio() {
-        browser.click('.tc-project-type-chooser__icon--public');
+    setProjectPrivacyRadio(privacy) {
+        browser.click(`input[value="${privacy}"]`);
     }
     clickCreateProjectSubmit() {
         browser.click('.pvXpn__Button--positive');
     }
+    static createProject(projectData) {
+        let dashboard = new Dashboard();
+        dashboard.open();
+        dashboard.clickCreateProjectButton();
+        dashboard.setProjectNameTextField(projectData['name']);
+        dashboard.clickSelectorAccountSelector();
+        dashboard.setAccountItem(projectData['account']);
+        dashboard.setProjectPrivacyRadio(projectData['privacy']);
+        dashboard.clickCreateProjectSubmit();
+    }
 }
-module.exports = new Dashboard();
+
+module.exports = Dashboard;
