@@ -1,4 +1,5 @@
 const Page = require('./Page');
+const Project = require('./Project');
 class Dashboard extends Page {
     open() {
         super.open('/dashboard');
@@ -13,8 +14,8 @@ class Dashboard extends Page {
         browser.click('.tc-account-selector');
     }
     setAccountItem(account) {
-        browser.waitForVisible('.tc-account-selector__option-list');
-        browser.click(`li:nth-child(${account})`);
+        browser.waitForVisible('.tc-account-selector__option-list',30000);
+        browser.click(`li.tc-account-selector__option-account:nth-child(${account})`);
     }
     setProjectPrivacyRadio(privacy) {
         browser.click(`input[value="${privacy}"]`);

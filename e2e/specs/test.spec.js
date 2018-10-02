@@ -1,8 +1,9 @@
-var assert = require('assert');
-var SingIn = require('../pages/SignIn');
-var Dashboard = require('../pages/Dashboard');
-var username = '';
-var password = '!';
+const assert = require('assert');
+const request = require('request');
+const SingIn = require('../pages/SignIn');
+const Dashboard = require('../pages/Dashboard');
+let username = '';
+let password = '';
 describe('pivotal tracker page new project',function () {
 
     let dashboard;
@@ -27,12 +28,17 @@ describe('pivotal tracker page new project',function () {
         privacy: "public"
     };
 
-    beforeEach(() => {
+    before(() => {
         dashboard = SingIn.loginAs(username, password);
     });
 
     it('should create a new private project with first account',()=>{
         Dashboard.createProject(projectData1);
     });
-    it('should create a new public project with second account');
+    it('should create a new public project with second account',()=>{
+        Dashboard.createProject(projectData2);
+    });
+    it('should not create a new private project with any account',()=>{
+        Dashboard.createProject(projectData3);
+    });
 });
