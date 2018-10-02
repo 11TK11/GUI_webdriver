@@ -1,8 +1,8 @@
 var assert = require('assert');
 var SingIn = require('../pages/SignIn');
 var Dashboard = require('../pages/Dashboard');
-var username = 'kevin.sanchezpeep@gmail.com';
-var password = '72495431TANIAtk!';
+var username = '';
+var password = '!';
 describe('pivotal tracker page new project',function () {
 
     let dashboard;
