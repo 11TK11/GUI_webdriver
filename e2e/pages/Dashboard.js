@@ -15,11 +15,21 @@ class Dashboard extends Page {
     clickAccountSelector() {
         browser.click('.tc-account-selector__option-account-name');
     }
-    setProjectPrivacyRadio() {
+    setProjectPrivacyRadioButton() {
         browser.click('.tc-project-type-chooser__icon--public');
     }
-    clickCreateProjectSubmit() {
+    clickWorkspaceTab(){
+        browser.click('//span[text()="Workspaces"]');
+    }
+    clickCreateWorkspaceButton() {
+        browser.click('#create-workspace-button');
+    }
+    setWorkspaceNameTextField(workspaceName) {
+        browser.setValue('.tc-form__input', workspaceName);
+    }
+        clickCreateSubmit() {
         browser.click('.pvXpn__Button--positive');
     }
+
 }
 module.exports = new Dashboard();
