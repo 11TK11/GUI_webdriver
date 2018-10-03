@@ -15,7 +15,7 @@ class Dashboard extends Page {
     }
     setAccountItem(account) {
         browser.waitForVisible('.tc-account-selector__option-list',waitingTime);
-        browser.click(`li.tc-account-selector__option-account:nth-child(${account})`);
+        browser.click(`//div[text()= "${account}"]`);
     }
     setProjectPrivacyRadio(privacy) {
         browser.click(`input[value="${privacy}"]`);
@@ -23,7 +23,7 @@ class Dashboard extends Page {
     clickCreateProjectSubmit() {
         browser.click('.pvXpn__Button--positive');
     }
-    static createProject(projectData) {
+    createProject(projectData) {
         let dashboard = new Dashboard();
         dashboard.open();
         dashboard.clickCreateProjectButton();
@@ -34,5 +34,4 @@ class Dashboard extends Page {
         dashboard.clickCreateProjectSubmit();
     }
 }
-
 module.exports = Dashboard;

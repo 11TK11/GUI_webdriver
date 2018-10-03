@@ -31,6 +31,5 @@ class SignIn extends Page {
         signIn.setPasswordPassField(password);
         return signIn.clickSignInButton();
     }
-
 }
 module.exports = SignIn;

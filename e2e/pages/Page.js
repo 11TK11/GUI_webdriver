@@ -3,7 +3,7 @@ class Page {
         this.title = 'https://www.pivotaltracker.com';
     }
     open(path) {
-        browser.url(this.title+path);
+        browser.url(this.title + path);
     }
 }
 module.exports = Page;
