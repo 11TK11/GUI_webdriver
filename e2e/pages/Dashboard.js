@@ -20,7 +20,16 @@ class Dashboard extends Page {
     setProjectPrivacyRadio(privacy) {
         browser.click(`input[value="${privacy}"]`);
     }
-    clickCreateProjectSubmit() {
+    clickWorkspaceTab() {
+        browser.click('//span[text()="Workspaces"]');
+    }
+    clickCreateWorkspaceButton() {
+        browser.click('#create-workspace-button');
+    }
+    setWorkspaceNameTextField(workspaceName) {
+        browser.setValue('.tc-form__input', workspaceName);
+    }
+    clickCreateSubmit() {
         browser.click('.pvXpn__Button--positive');
     }
     createProject(projectData) {
