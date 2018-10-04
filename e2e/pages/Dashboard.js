@@ -1,4 +1,5 @@
 const Page = require('./Page');
+const waitingTime = 30000;
 class Dashboard extends Page {
     open() {
         super.open('/dashboard');
@@ -9,14 +10,15 @@ class Dashboard extends Page {
     setProjectNameTextField(projectName) {
         browser.setValue('.tc-form__input', projectName);
     }
-    clickSelectorAccount() {
+    clickSelectorAccountSelector() {
         browser.click('.tc-account-selector');
     }
-    clickAccountSelector() {
-        browser.click('.tc-account-selector__option-account-name');
+    setAccountItem(account) {
+        browser.waitForVisible('.tc-account-selector__option-list',waitingTime);
+        browser.click(`//div[text()= "${account}"]`);
     }
-    setProjectPrivacyRadioButton() {
-        browser.click('.tc-project-type-chooser__icon--public');
+    setProjectPrivacyRadio(privacy) {
+        browser.click(`input[value="${privacy}"]`);
     }
     clickWorkspaceTab() {
         browser.click('//span[text()="Workspaces"]');
@@ -41,4 +43,4 @@ class Dashboard extends Page {
         dashboard.clickCreateProjectSubmit();
     }
 }
-module.exports = new Dashboard();
+module.exports = Dashboard;

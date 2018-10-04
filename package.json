@@ -18,5 +18,8 @@
     "wdio-mocha-framework": "^0.5.13",
     "wdio-sauce-service": "^0.4.8",
     "webdriverio": "^4.13.2"
+  },
+  "dependencies": {
+    "selenium-standalone": "^6.15.3"
   }
 }

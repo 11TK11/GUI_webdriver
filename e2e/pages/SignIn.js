@@ -8,6 +8,7 @@ class SignIn extends Page {
         this.passwordTextField = '#credentials_password';
         this.signInButton = '.app_signin_action_button';
     }
+  
     open() {
         super.open('/signin');
     }
@@ -15,6 +16,7 @@ class SignIn extends Page {
         browser.waitForVisible(this.userNameTextField, 30000);
         browser.setValue(this.userNameTextField, username);
     }
+  
     clickNextButton() {
         browser.waitForVisible(this.nextButton, 30000);
         browser.click(this.nextButton);
