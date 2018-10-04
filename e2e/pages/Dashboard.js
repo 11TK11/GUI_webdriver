@@ -28,8 +28,6 @@ class Dashboard extends Page {
     }
     setAccountItem(account) {
         CommonActions.waitAndClick(this.setAccountPath(account));
-        //browser.waitForVisible('.tc-account-selector__option-list',30000);
-        //browser.click(`//div[text()= "${account}"]`);
     }
     setPrivacyRadioPath(privacy) {
         return `input[value="${privacy}"]`;
