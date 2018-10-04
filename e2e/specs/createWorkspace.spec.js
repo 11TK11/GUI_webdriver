@@ -1,22 +1,20 @@
-var SingIn = require('../pages/SignIn');
-var Dashboard = require('../pages/Dashboard');
-var username = 'hapsneeze';
-var pass = 'test12345';
-describe('pivotal tracker page',function () {
-    it('should create a new workspace', function () {
-        //Sign in - precondition
-        SingIn.open();
-        SingIn.setUserNameTextField(username);
-        SingIn.clickSignInButton();
-        SingIn.setPasswordPassField(pass);
-        SingIn.clickSignInButton();
-        Dashboard.open();
+const SingIn = require('../pages/SignIn');
+let username = 'hapsneeze';
+let password = 'test12345';
+let testindex = 100;
+describe('pivotal tracker page', () => {
+
+    let dashboard;
+    let workspace;
+    let workspaceName = 'TestWorkspace'+Math.floor(Math.random() * testindex);
+    //Sign in precondition
+    before(() => {
+        dashboard = SingIn.loginAs(username, password);
+    });
+
+    it('should create a new workspace named: '+workspaceName, () => {
         //create workspace
-        Dashboard.clickWorkspaceTab();
-        Dashboard.clickCreateWorkspaceButton();
-        let testNo = 'testWorkspaceTest'+Math.floor(Math.random() * 100);
-        Dashboard.setWorkspaceNameTextField(testNo);
-        Dashboard.clickCreateSubmit();
-        console.log(testNo);
+        workspace = dashboard.createWorkspace(workspaceName);
+        expect(workspaceName).to.equal(workspace.getWorkspaceName());
     });
 });
