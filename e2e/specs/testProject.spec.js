@@ -15,7 +15,6 @@ describe('pivotal tracker page new project', () => {
     };
     let projectData3 = {
         name: 'test3',
-        account: 'noAccount',
         privacy: 'private'
     };
     let projectData4 = {
@@ -37,7 +36,7 @@ describe('pivotal tracker page new project', () => {
     it('should not create a new private project with any account', () => {
         dashboard.createProject(projectData3);
     });
-    it('should not create a new private project with any account', () => {
+    it('should create a new private project with a new account', () => {
         dashboard.createProject(projectData4);
     });
 });
