@@ -16,6 +16,24 @@ class CommonActions {
     }
 
     /**
+     * Wait for element to be visible to set the value
+     * @param elementCSS
+     * @param value
+     */
+    static waitAndSetValue(elementCSS, value) {
+        browser.waitForVisible(elementCSS,timeToWait);
+        browser.setValue(elementCSS,value);
+    }
+
+    /**
+     * Wait for element to be visible to click
+     * @param elementCSS
+     */
+    static waitAndClick(elementCSS) {
+        browser.waitForVisible(elementCSS,timeToWait);
+        browser.click(elementCSS);
+    }
+    /**
      * Method to click on element.
      * @param elementCSS WebElement locator.
      */

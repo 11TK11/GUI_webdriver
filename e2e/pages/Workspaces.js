@@ -2,7 +2,7 @@ const Page = require('./Page');
 let CommonActions = require('../utils/CommonActions.js');
 class Workspaces extends Page {
 
-    constructor(){
+    constructor() {
         super();
         this.workspaceContext = '.raw_context_name';
     }

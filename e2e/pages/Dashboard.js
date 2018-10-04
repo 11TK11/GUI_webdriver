@@ -1,36 +1,53 @@
 const Page = require('./Page');
 const Workspaces = require('./Workspaces');
+let CommonActions = require('../utils/CommonActions.js');
 class Dashboard extends Page {
+    constructor() {
+        super();
+        this.createProjectButton = '#create-project-button';
+        this.createWorkspaceButton = '#create-workspace-button';
+        this.accountSelector = '.tc-account-selector';
+        this.workspacesTab = '//span[text()="Workspaces"]';
+        this.workspaceNameTextField = '.tc-form__input';
+        this.createSubmit = '.pvXpn__Button--positive';
+    }
     open() {
         super.open('/dashboard');
     }
     clickCreateProjectButton() {
-        browser.click('#create-project-button');
+        CommonActions.waitAndClick(this.createProjectButton);
     }
     setProjectNameTextField(projectName) {
-        browser.setValue('.tc-form__input', projectName);
+        CommonActions.waitAndSetValue(projectName);
     }
     clickSelectorAccountSelector() {
-        browser.click('.tc-account-selector');
+        CommonActions.waitAndClick(this.accountSelector);
+    }
+    setAccountPath(account) {
+        return `//div[text()= "${account}"]`;
     }
     setAccountItem(account) {
-        browser.waitForVisible('.tc-account-selector__option-list',30000);
-        browser.click(`//div[text()= "${account}"]`);
+        CommonActions.waitAndClick(this.setAccountPath(account));
+        //browser.waitForVisible('.tc-account-selector__option-list',30000);
+        //browser.click(`//div[text()= "${account}"]`);
+    }
+    setPrivacyRadioPath(privacy) {
+        return `input[value="${privacy}"]`;
     }
     setProjectPrivacyRadio(privacy) {
-        browser.click(`input[value="${privacy}"]`);
+        CommonActions.waitAndClick(this.setPrivacyRadioPath(privacy));
     }
     clickWorkspaceTab() {
-        browser.click('//span[text()="Workspaces"]');
+        CommonActions.waitAndClick(this.workspacesTab);
     }
     clickCreateWorkspaceButton() {
-        browser.click('#create-workspace-button');
+        CommonActions.waitAndClick(this.createWorkspaceButton);
     }
     setWorkspaceNameTextField(workspaceName) {
-        browser.setValue('.tc-form__input', workspaceName);
+        CommonActions.waitAndSetValue(this.workspaceNameTextField,workspaceName);
     }
     clickCreateSubmit() {
-        browser.click('.pvXpn__Button--positive');
+        CommonActions.waitAndClick(this.createSubmit);
     }
     createProject(projectData) {
         let dashboard = new Dashboard();

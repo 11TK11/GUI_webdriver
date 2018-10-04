@@ -1,11 +1,12 @@
-var SingIn = require('../pages/SignIn');
-var username = 'hapsneeze';
-var password = 'test12345';
+const SingIn = require('../pages/SignIn');
+let username = 'hapsneeze';
+let password = 'test12345';
+let testindex;
 describe('pivotal tracker page', () => {
 
     let dashboard;
     let workspace;
-    let workspaceName = 'TestWorkspace'+Math.floor(Math.random() * 100);
+    let workspaceName = 'TestWorkspace'+Math.floor(Math.random() * testindex);
     //Sign in precondition
     before(() => {
         dashboard = SingIn.loginAs(username, password);
