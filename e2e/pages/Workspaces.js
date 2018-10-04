@@ -6,8 +6,8 @@ class Workspaces extends Page {
         super();
         this.workspaceContext = '.raw_context_name';
     }
-    open() {
-        super.open('/n/workspaces/${workspaceId}');
+    open(workspaceId) {
+        super.open(`/n/workspaces/${workspaceId}`);
     }
     getWorkspaceName() {
         return CommonActions.waitAndGetText(this.workspaceContext);

@@ -1,7 +1,7 @@
 const SingIn = require('../pages/SignIn');
 let username = 'hapsneeze';
 let password = 'test12345';
-let testindex;
+let testindex = 100;
 describe('pivotal tracker page', () => {
 
     let dashboard;
