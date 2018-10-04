@@ -18,7 +18,7 @@ class Dashboard extends Page {
     setProjectPrivacyRadioButton() {
         browser.click('.tc-project-type-chooser__icon--public');
     }
-    clickWorkspaceTab(){
+    clickWorkspaceTab() {
         browser.click('//span[text()="Workspaces"]');
     }
     clickCreateWorkspaceButton() {
@@ -27,7 +27,7 @@ class Dashboard extends Page {
     setWorkspaceNameTextField(workspaceName) {
         browser.setValue('.tc-form__input', workspaceName);
     }
-        clickCreateSubmit() {
+    clickCreateSubmit() {
         browser.click('.pvXpn__Button--positive');
     }
 

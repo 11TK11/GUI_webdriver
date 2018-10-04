@@ -1,7 +1,5 @@
-var assert = require('assert');
 var SingIn = require('../pages/SignIn');
 var Dashboard = require('../pages/Dashboard');
-var Workspaces = require('../pages/Workspaces');
 var username = 'hapsneeze';
 var pass = 'test12345';
 describe('pivotal tracker page',function () {

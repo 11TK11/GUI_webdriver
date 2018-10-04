@@ -1,5 +1,5 @@
 const Page = require('./Page');
-const WithPass = require('../pages/ShowWithPass');
+//const WithPass = require('../pages/ShowWithPass');
 class SignIn extends Page {
     open() {
         super.open('/signin');

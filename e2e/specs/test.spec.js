@@ -1,4 +1,3 @@
-var assert = require('assert');
 var SingIn = require('../pages/SignIn');
 var Dashboard = require('../pages/Dashboard');
 var username = 'hapsneeze';
@@ -17,6 +16,5 @@ describe('pivotal tracker page',function () {
         Dashboard.clickAccountSelector();
         Dashboard.setProjectPrivacyRadioButton();
         Dashboard.clickCreateSubmit();
-
     });
 });
