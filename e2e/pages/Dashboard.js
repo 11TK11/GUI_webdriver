@@ -1,36 +1,51 @@
 const Page = require('./Page');
-const waitingTime = 30000;
+const Workspaces = require('./Workspaces');
+let CommonActions = require('../utils/CommonActions.js');
 class Dashboard extends Page {
+    constructor() {
+        super();
+        this.createProjectButton = '#create-project-button';
+        this.createWorkspaceButton = '#create-workspace-button';
+        this.accountSelector = '.tc-account-selector';
+        this.workspacesTab = '//span[text()="Workspaces"]';
+        this.workspaceNameTextField = '.tc-form__input';
+        this.createSubmit = '.pvXpn__Button--positive';
+    }
     open() {
         super.open('/dashboard');
     }
     clickCreateProjectButton() {
-        browser.click('#create-project-button');
+        CommonActions.waitAndClick(this.createProjectButton);
     }
     setProjectNameTextField(projectName) {
-        browser.setValue('.tc-form__input', projectName);
+        CommonActions.waitAndSetValue(projectName);
     }
     clickSelectorAccountSelector() {
-        browser.click('.tc-account-selector');
+        CommonActions.waitAndClick(this.accountSelector);
+    }
+    setAccountPath(account) {
+        return `//div[text()= "${account}"]`;
     }
     setAccountItem(account) {
-        browser.waitForVisible('.tc-account-selector__option-list',waitingTime);
-        browser.click(`//div[text()= "${account}"]`);
+        CommonActions.waitAndClick(this.setAccountPath(account));
+    }
+    setPrivacyRadioPath(privacy) {
+        return `input[value="${privacy}"]`;
     }
     setProjectPrivacyRadio(privacy) {
-        browser.click(`input[value="${privacy}"]`);
+        CommonActions.waitAndClick(this.setPrivacyRadioPath(privacy));
     }
     clickWorkspaceTab() {
-        browser.click('//span[text()="Workspaces"]');
+        CommonActions.waitAndClick(this.workspacesTab);
     }
     clickCreateWorkspaceButton() {
-        browser.click('#create-workspace-button');
+        CommonActions.waitAndClick(this.createWorkspaceButton);
     }
     setWorkspaceNameTextField(workspaceName) {
-        browser.setValue('.tc-form__input', workspaceName);
+        CommonActions.waitAndSetValue(this.workspaceNameTextField,workspaceName);
     }
     clickCreateSubmit() {
-        browser.click('.pvXpn__Button--positive');
+        CommonActions.waitAndClick(this.createSubmit);
     }
     createProject(projectData) {
         let dashboard = new Dashboard();
@@ -40,7 +55,23 @@ class Dashboard extends Page {
         dashboard.clickSelectorAccountSelector();
         dashboard.setAccountItem(projectData['account']);
         dashboard.setProjectPrivacyRadio(projectData['privacy']);
-        dashboard.clickCreateProjectSubmit();
+        dashboard.clickCreateSubmit();
+    }
+
+    /**
+     * Creates a new workspace
+     * @param workspaceName for the new workspace
+     * @returns {Workspaces} return an instance of workspace
+     */
+    createWorkspace(workspaceName)
+    {
+        let dashboard = new Dashboard();
+        dashboard.open();
+        dashboard.clickWorkspaceTab();
+        dashboard.clickCreateWorkspaceButton();
+        dashboard.setWorkspaceNameTextField(workspaceName);
+        dashboard.clickCreateSubmit();
+        return new Workspaces();
     }
 }
 module.exports = Dashboard;

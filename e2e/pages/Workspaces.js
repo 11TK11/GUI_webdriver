@@ -1,11 +1,17 @@
 const Page = require('./Page');
+let CommonActions = require('../utils/CommonActions.js');
 class Workspaces extends Page {
-    open() {
-        super.open('/workspaces');
+
+    constructor() {
+        super();
+        this.workspaceContext = '.raw_context_name';
+    }
+    open(workspaceId) {
+        super.open(`/n/workspaces/${workspaceId}`);
     }
     getWorkspaceName() {
-        return browser.getText('.tc_context_name');
+        return CommonActions.waitAndGetText(this.workspaceContext);
     }
 
 }
-module.exports = new Workspaces();
+module.exports = Workspaces;

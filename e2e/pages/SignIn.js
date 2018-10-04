@@ -1,5 +1,6 @@
 const Page = require('./Page');
 const Dashboard = require('./Dashboard');
+let CommonActions = require('../utils/CommonActions.js');
 class SignIn extends Page {
     constructor() {
         super();
@@ -13,21 +14,17 @@ class SignIn extends Page {
         super.open('/signin');
     }
     setUserNameTextField(username) {
-        browser.waitForVisible(this.userNameTextField, 30000);
-        browser.setValue(this.userNameTextField, username);
+        CommonActions.waitAndSetValue(this.userNameTextField,username);
     }
   
     clickNextButton() {
-        browser.waitForVisible(this.nextButton, 30000);
-        browser.click(this.nextButton);
+        CommonActions.waitAndClick(this.nextButton);
     }
     setPasswordPassField(password) {
-        browser.waitForVisible(this.passwordTextField, 30000);
-        browser.setValue(this.passwordTextField, password);
+        CommonActions.waitAndSetValue(this.passwordTextField,password);
     }
     clickSignInButton() {
-        browser.waitForVisible(this.signInButton, 30000);
-        browser.click(this.signInButton);
+        CommonActions.waitAndClick(this.signInButton);
         return new Dashboard();
     }
 
