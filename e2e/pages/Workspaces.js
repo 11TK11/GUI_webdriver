@@ -1,11 +1,12 @@
 const Page = require('./Page');
 class Workspaces extends Page {
     open() {
-        super.open('/workspaces');
+        super.open('/n/workspaces/${workspaceId}');
     }
     getWorkspaceName() {
-        return browser.getText('.tc_context_name');
+        browser.waitForVisible('.raw_context_name');
+        return browser.getText('.raw_context_name')
     }
 
 }
-module.exports = new Workspaces();
+module.exports = Workspaces;

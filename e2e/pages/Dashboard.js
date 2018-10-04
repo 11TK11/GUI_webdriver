@@ -1,4 +1,5 @@
 const Page = require('./Page');
+const Workspaces = require('./Workspaces');
 const waitingTime = 30000;
 class Dashboard extends Page {
     open() {
@@ -40,7 +41,17 @@ class Dashboard extends Page {
         dashboard.clickSelectorAccountSelector();
         dashboard.setAccountItem(projectData['account']);
         dashboard.setProjectPrivacyRadio(projectData['privacy']);
-        dashboard.clickCreateProjectSubmit();
+        dashboard.clickCreateSubmit();
+    }
+    createWorkspace(workspaceName)
+    {
+        let dashboard = new Dashboard();
+        dashboard.open();
+        dashboard.clickWorkspaceTab();
+        dashboard.clickCreateWorkspaceButton();
+        dashboard.setWorkspaceNameTextField(workspaceName);
+        dashboard.clickCreateSubmit();
+        return new Workspaces();
     }
 }
 module.exports = Dashboard;
