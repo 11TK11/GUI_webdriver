@@ -1,13 +1,12 @@
 const SingIn = require('../pages/SignIn');
 let username = '';
 let password = '';
-describe('pivotal tracker page new project', function () {
+describe('pivotal tracker page new project', () => {
 
     let dashboard;
     let projectData1 = {
         name: 'test1',
-        account: 'Kev SD\'s Projects',
-        privacy: 'private'
+        account: 'Kev SD\'s Projects'
     };
     let projectData2 = {
         name: 'test2',
@@ -29,16 +28,16 @@ describe('pivotal tracker page new project', function () {
         dashboard = SingIn.loginAs(username, password);
     });
 
-    it('should create a new private project with first account',() => {
+    it('should create a new private project with first account', () => {
         dashboard.createProject(projectData1);
     });
-    it('should create a new public project with second account',() => {
+    it('should create a new public project with second account', () => {
         dashboard.createProject(projectData2);
     });
-    it('should not create a new private project with any account',() => {
+    it('should not create a new private project with any account', () => {
         dashboard.createProject(projectData3);
     });
-    it('should not create a new private project with any account',() => {
+    it('should not create a new private project with any account', () => {
         dashboard.createProject(projectData4);
     });
 });
