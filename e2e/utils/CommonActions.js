@@ -40,7 +40,6 @@ class CommonActions {
     static clickWebElement(elementCSS) {
         this.moveToComponent(elementCSS);
         browser.click(elementCSS);
-
     }
 
     /**
@@ -63,7 +62,9 @@ class CommonActions {
         browser.element(elementCSS).setValue(value);
     }
 
-
+    static waitVisibleElement(elementCSS) {
+        browser.waitForVisible(elementCSS, timeToWait);
+    }
 }
 
 module.exports = CommonActions;

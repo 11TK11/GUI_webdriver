@@ -10,6 +10,10 @@ class Dashboard extends Page {
         this.workspacesTab = '//span[text()="Workspaces"]';
         this.workspaceNameTextField = '.tc-form__input';
         this.createSubmit = '.pvXpn__Button--positive';
+        this.newAccountName = '.tc-account-creator__name';
+        this.projectName = '//input[@name="project_name"]';
+        this.createAccountButton = '.tc-account-selector__create-account';
+        this.accountListSelector = '.tc-account-selector__option-list';
     }
     open() {
         super.open('/dashboard');
@@ -18,34 +22,36 @@ class Dashboard extends Page {
         CommonActions.waitAndClick(this.createProjectButton);
     }
     setProjectNameTextField(projectName) {
-        CommonActions.waitAndSetValue(projectName);
+        CommonActions.waitAndSetValue(this.projectName, projectName);
     }
     clickSelectorAccountSelector() {
         CommonActions.waitAndClick(this.accountSelector);
     }
-    setAccountPath(account) {
+    setAccountSelector(account) {
         return `//div[text()= "${account}"]`;
     }
+    setPrivacy(privacy) {
+        return `input[value="${privacy}"]`;
+    }
     clickNewAccount() {
-        browser.click('.tc-account-selector__create-account');
+        CommonActions.waitAndClick(this.createAccountButton);
     }
     setNewAccountName(accountName) {
-        browser.waitForVisible('.tc-account-creator__name',waitingTime);
-        browser.setValue('.tc-account-creator__name', accountName);
+        CommonActions.waitAndSetValue(this.newAccountName,accountName);
     }
     setAccountItem(account) {
         this.clickSelectorAccountSelector();
-        browser.waitForVisible('.tc-account-selector__option-list',waitingTime);
+        CommonActions.waitVisibleElement(this.accountListSelector);
         try {
-            browser.getText(`//div[text()= "${account}"]`);
-            browser.click(`//div[text()= "${account}"]`);
+            CommonActions.waitAndGetText(this.setAccountSelector(account));
+            CommonActions.waitAndClick(this.setAccountSelector(account));
         }catch (e) {
             this.clickNewAccount();
             this.setNewAccountName(account);
         }
     }
     setProjectPrivacyRadio(privacy) {
-        CommonActions.waitAndClick(this.setPrivacyRadioPath(privacy));
+        CommonActions.waitAndClick(this.setPrivacy(privacy));
     }
     clickWorkspaceTab() {
         CommonActions.waitAndClick(this.workspacesTab);
@@ -66,7 +72,7 @@ class Dashboard extends Page {
             'name': () => this.setProjectNameTextField(projectValue.name),
             'account': () => this.setAccountItem(projectValue.account),
             'privacy': () => this.setProjectPrivacyRadio(projectValue.privacy)
-        }
+        };
         Object.keys(projectValue).forEach(key => {
             fillProjectInformation[key].call();
         });
