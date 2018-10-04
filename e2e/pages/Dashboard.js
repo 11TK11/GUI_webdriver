@@ -30,6 +30,15 @@ class Dashboard extends Page {
     clickCreateSubmit() {
         browser.click('.pvXpn__Button--positive');
     }
-
+    createProject(projectData) {
+        let dashboard = new Dashboard();
+        dashboard.open();
+        dashboard.clickCreateProjectButton();
+        dashboard.setProjectNameTextField(projectData['name']);
+        dashboard.clickSelectorAccountSelector();
+        dashboard.setAccountItem(projectData['account']);
+        dashboard.setProjectPrivacyRadio(projectData['privacy']);
+        dashboard.clickCreateProjectSubmit();
+    }
 }
 module.exports = new Dashboard();
