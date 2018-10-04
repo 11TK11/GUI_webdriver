@@ -1,6 +1,5 @@
 const Page = require('./Page');
 const Workspaces = require('./Workspaces');
-const waitingTime = 30000;
 class Dashboard extends Page {
     open() {
         super.open('/dashboard');
@@ -15,7 +14,7 @@ class Dashboard extends Page {
         browser.click('.tc-account-selector');
     }
     setAccountItem(account) {
-        browser.waitForVisible('.tc-account-selector__option-list',waitingTime);
+        browser.waitForVisible('.tc-account-selector__option-list',30000);
         browser.click(`//div[text()= "${account}"]`);
     }
     setProjectPrivacyRadio(privacy) {
@@ -43,6 +42,12 @@ class Dashboard extends Page {
         dashboard.setProjectPrivacyRadio(projectData['privacy']);
         dashboard.clickCreateSubmit();
     }
+
+    /**
+     * Creates a new workspace
+     * @param workspaceName for the new workspace
+     * @returns {Workspaces} return an instance of workspace
+     */
     createWorkspace(workspaceName)
     {
         let dashboard = new Dashboard();
