@@ -14,7 +14,9 @@ describe('pivotal tracker page',function () {
         //create workspace
         Dashboard.clickWorkspaceTab();
         Dashboard.clickCreateWorkspaceButton();
-        Dashboard.setWorkspaceNameTextField('testWorkspace15');
+        let testNo = 'testWorkspaceTest'+Math.floor(Math.random() * 100);
+        Dashboard.setWorkspaceNameTextField(testNo);
         Dashboard.clickCreateSubmit();
+        console.log(testNo);
     });
 });
