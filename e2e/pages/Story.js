@@ -1,17 +1,22 @@
 const Page = require('./Page');
-
+let CommonActions = require('../utils/CommonActions.js');
 /**
  * this class contains methods of dashboard.
  */
 class Story extends Page {
+    constructor() {
+        super();
+        this.addStoryButton = 'Sidebar__addStory__wMyRzEAE';
+        this.storyTitleField = '#NameEdit--c234';
+    }
     open(projectId) {
         super.open(`/n/projects/${projectId}`);
     }
     clickAddStoryButton() {
-        browser.click('Sidebar__addStory__wMyRzEAE');
+        CommonActions.waitAndClick(this.addStoryButton);
     }
-    setStoryTitle(storyTitle) {
-        browser.setValue('#NameEdit--c234', storyTitle);
+    setStoryTitleField(storyTitle) {
+        CommonActions.waitAndSetValue(this.storyTitleField,storyTitle);
     }
 }
 module.exports = Story;
