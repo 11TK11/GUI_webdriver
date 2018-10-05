@@ -1,5 +1,6 @@
 'use strict';
 const timeToWait = 30000;
+const pauseTime = 20000;
 
 /**
  * CommonActions class with CommonActions Methods.
@@ -77,7 +78,7 @@ class CommonActions {
      * @returns {*}
      */
     static waitGetTitle() {
-        browser.pause(20000);
+        browser.pause(pauseTime);
         return browser.getTitle();
     }
 }
