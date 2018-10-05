@@ -1,3 +1,6 @@
+/**
+ * this class contains the main url.
+ */
 class Page {
     constructor() {
         this.title = 'https://www.pivotaltracker.com';

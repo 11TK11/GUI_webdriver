@@ -1,6 +1,10 @@
 const Page = require('./Page');
 const Dashboard = require('./Dashboard');
 let CommonActions = require('../utils/CommonActions.js');
+
+/**
+ * this class contains methods of SignIn.
+ */
 class SignIn extends Page {
     constructor() {
         super();
@@ -13,6 +17,7 @@ class SignIn extends Page {
     open() {
         super.open('/signin');
     }
+
     setUserNameTextField(username) {
         CommonActions.waitAndSetValue(this.userNameTextField,username);
     }
@@ -20,9 +25,15 @@ class SignIn extends Page {
     clickNextButton() {
         CommonActions.waitAndClick(this.nextButton);
     }
+
     setPasswordPassField(password) {
         CommonActions.waitAndSetValue(this.passwordTextField,password);
     }
+
+    /**
+     * method which do the sign in.
+     * @returns {Dashboard} return the dashboard page
+     */
     clickSignInButton() {
         CommonActions.waitAndClick(this.signInButton);
         return new Dashboard();

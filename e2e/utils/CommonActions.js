@@ -1,5 +1,6 @@
 'use strict';
 const timeToWait = 30000;
+const pauseTime = 20000;
 
 /**
  * CommonActions class with CommonActions Methods.
@@ -40,7 +41,6 @@ class CommonActions {
     static clickWebElement(elementCSS) {
         this.moveToComponent(elementCSS);
         browser.click(elementCSS);
-
     }
 
     /**
@@ -63,7 +63,24 @@ class CommonActions {
         browser.element(elementCSS).setValue(value);
     }
 
+    /**
+     * Method which wait for an element
+     * to be visible.
+     * @param elementCSS
+     */
+    static waitVisibleElement(elementCSS) {
+        browser.waitForVisible(elementCSS, timeToWait);
+    }
 
+    /**
+     * Method to get the title of the page
+     * after it loads.
+     * @returns {*}
+     */
+    static waitGetTitle() {
+        browser.pause(pauseTime);
+        return browser.getTitle();
+    }
 }
 
 module.exports = CommonActions;

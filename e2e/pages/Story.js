@@ -1,4 +1,8 @@
 const Page = require('./Page');
+
+/**
+ * this class contains methods of dashboard.
+ */
 class Story extends Page {
     open(projectId) {
         super.open(`/n/projects/${projectId}`);
