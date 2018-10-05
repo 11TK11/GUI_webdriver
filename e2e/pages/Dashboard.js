@@ -1,6 +1,11 @@
 const Page = require('./Page');
 const Workspaces = require('./Workspaces');
+const Project = require('./Project');
 let CommonActions = require('../utils/CommonActions.js');
+
+/**
+ * this class contains methods of dashboard.
+ */
 class Dashboard extends Page {
     constructor() {
         super();
@@ -15,33 +20,45 @@ class Dashboard extends Page {
         this.createAccountButton = '.tc-account-selector__create-account';
         this.accountListSelector = '.tc-account-selector__option-list';
     }
+
     open() {
         super.open('/dashboard');
     }
+
     clickCreateProjectButton() {
         CommonActions.waitAndClick(this.createProjectButton);
     }
+
     setProjectNameTextField(projectName) {
         CommonActions.waitAndSetValue(this.projectName, projectName);
     }
+
     clickSelectorAccountSelector() {
         CommonActions.waitAndClick(this.accountSelector);
     }
+
     setAccountSelector(account) {
         return `//div[text()= "${account}"]`;
     }
+
     setPrivacy(privacy) {
         return `input[value="${privacy}"]`;
     }
+
     clickNewAccount() {
         CommonActions.waitAndClick(this.createAccountButton);
     }
+
     setNewAccountName(accountName) {
         CommonActions.waitAndSetValue(this.newAccountName,accountName);
     }
+
     setAccountItem(account) {
         this.clickSelectorAccountSelector();
         CommonActions.waitVisibleElement(this.accountListSelector);
+
+        // this try will set the account if it existe and
+        // create it if it doesn't
         try {
             CommonActions.waitAndGetText(this.setAccountSelector(account));
             CommonActions.waitAndClick(this.setAccountSelector(account));
@@ -50,23 +67,34 @@ class Dashboard extends Page {
             this.setNewAccountName(account);
         }
     }
+
     setProjectPrivacyRadio(privacy) {
         CommonActions.waitAndClick(this.setPrivacy(privacy));
     }
+
     clickWorkspaceTab() {
         CommonActions.waitAndClick(this.workspacesTab);
     }
+
     clickCreateWorkspaceButton() {
         CommonActions.waitAndClick(this.createWorkspaceButton);
     }
+
     setWorkspaceNameTextField(workspaceName) {
         CommonActions.waitAndSetValue(this.workspaceNameTextField,workspaceName);
     }
+
     clickCreateSubmit() {
         CommonActions.waitAndClick(this.createSubmit);
     }
 
+    /**
+     * intelligent method for fields.
+     * @param projectValue json object to set in the form
+     * @returns {Project} instance of page project
+     */
     createProject(projectValue) {
+        this.open();
         this.clickCreateProjectButton();
         let fillProjectInformation = {
             'name': () => this.setProjectNameTextField(projectValue.name),
@@ -77,7 +105,7 @@ class Dashboard extends Page {
             fillProjectInformation[key].call();
         });
         this.clickCreateSubmit();
-        this.open();
+        return new Project();
     }
 
     /**

@@ -62,8 +62,23 @@ class CommonActions {
         browser.element(elementCSS).setValue(value);
     }
 
+    /**
+     * Method which wait for an element
+     * to be visible.
+     * @param elementCSS
+     */
     static waitVisibleElement(elementCSS) {
         browser.waitForVisible(elementCSS, timeToWait);
+    }
+
+    /**
+     * Method to get the title of the page
+     * after it loads.
+     * @returns {*}
+     */
+    static waitGetTitle() {
+        browser.pause(20000);
+        return browser.getTitle();
     }
 }
 

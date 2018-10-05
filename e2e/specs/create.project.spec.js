@@ -1,12 +1,13 @@
 const SingIn = require('../pages/SignIn');
-let username = '';
-let password = '';
+let username = 'hapsneeze';
+let password = 'test12345';
 describe('pivotal tracker page new project', () => {
 
     let dashboard;
+    let project;
     let projectData1 = {
         name: 'test1',
-        account: 'Kev SD\'s Projects'
+        account: 'TEST'
     };
     let projectData2 = {
         name: 'test2',
@@ -28,15 +29,19 @@ describe('pivotal tracker page new project', () => {
     });
 
     it('should create a new private project with first account', () => {
-        dashboard.createProject(projectData1);
+        project = dashboard.createProject(projectData1);
+        expect(`${projectData1.name} - Pivotal Tracker`).to.equal(project.getProjectName());
     });
     it('should create a new public project with second account', () => {
-        dashboard.createProject(projectData2);
+        project = dashboard.createProject(projectData2);
+        expect(`${projectData2.name} - Pivotal Tracker`).to.equal(project.getProjectName());
     });
     it('should not create a new private project with any account', () => {
-        dashboard.createProject(projectData3);
+        project = dashboard.createProject(projectData3);
+        expect(`${projectData3.name} - Pivotal Tracker`).to.not.equal(project.getProjectName());
     });
     it('should create a new private project with a new account', () => {
-        dashboard.createProject(projectData4);
+        project = dashboard.createProject(projectData4);
+        expect(`${projectData4.name} - Pivotal Tracker`).to.equal(project.getProjectName());
     });
 });
