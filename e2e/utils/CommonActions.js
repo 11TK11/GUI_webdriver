@@ -34,6 +34,15 @@ class CommonActions {
         browser.waitForVisible(elementCSS,timeToWait);
         browser.click(elementCSS);
     }
+
+    /**
+     * Wait for element to be visible to click
+     * @param elementCSS
+     */
+    static waitAndDoubleClick(elementCSS) {
+        browser.waitForVisible(elementCSS,timeToWait);
+        browser.doubleClick(elementCSS);
+    }
     /**
      * Method to click on element.
      * @param elementCSS WebElement locator.
@@ -49,7 +58,7 @@ class CommonActions {
      * @returns WebElement.
      */
     static getElement(elementCSS) {
-        this.waitElement(elementCSS);
+        browser.waitForExist(elementCSS);
         return browser.element(elementCSS);
     }
 
@@ -58,8 +67,8 @@ class CommonActions {
      * @param elementCSS WebElement locator.
      */
     static setInputTextField(elementCSS, value) {
-        this.waitElement(elementCSS);
-        this.moveToComponent(elementCSS);
+        browser.waitForExist(elementCSS);
+        //browser.moveToComponent(elementCSS);
         browser.element(elementCSS).setValue(value);
     }
 
