@@ -68,7 +68,6 @@ class CommonActions {
      */
     static setInputTextField(elementCSS, value) {
         browser.waitForExist(elementCSS);
-        //browser.moveToComponent(elementCSS);
         browser.element(elementCSS).setValue(value);
     }
 
