@@ -9,7 +9,7 @@ class Story extends Page {
         super();
         this.addStoryButton = 'button[data-aid="Sidebar__AddStoryButton"]';
         this.storyTitleField = 'textArea[aria-label="story title"]';
-        this.saveStoryButton = 'button[class="autosaves button std save"]'
+        this.saveStoryButton = 'button[class="autosaves button std save"]';
     }
     open(projectId) {
         super.open(`/n/projects/${projectId}`);

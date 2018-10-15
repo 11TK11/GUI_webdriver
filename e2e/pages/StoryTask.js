@@ -10,7 +10,6 @@ class StoryTask extends Page {
         this.addNewTaskButton = 'button[data-aid="addTaskButton"]';
         this.taskTitleTextField = 'textArea[data-aid="new"]';
         this.saveStoryChanges = 'button[class="autosaves button std close"]';
-        this.tasksList = 'TaskDescription'
     }
     open(projectId) {
         super.open(`/n/projects/${projectId}`);
@@ -27,10 +26,10 @@ class StoryTask extends Page {
     clickSaveStoryChanges() {
         CommonActions.waitAndClick(this.saveStoryChanges);
     }
-    createTasks(projectID, storyName, tasksList){
+    createTasks(tasksList) {
         this.clickStartAddingTaskButton();
         tasksList.forEach(task => {
-            this.setTaskTitleTextField(task)
+            this.setTaskTitleTextField(task);
             this.clickSaveAndAddNewTaskButton();
         });
         this.clickSaveStoryChanges();

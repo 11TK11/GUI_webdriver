@@ -15,8 +15,7 @@ describe('pivotal tracker project page add story', () => {
     it('should create a new private project with first account', () => {
         story = project.getStoryPageOfProject();
         story.clickAddStoryButton();
-        story.setStoryTitleField("story test");
+        story.setStoryTitleField('story test');
         story.clickSaveStoryButton();
-        //expect(`${taskList[0]}`).to.equal(storyTasks.searchTask(taskList[0]));
     });
 });

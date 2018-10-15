@@ -1,5 +1,5 @@
 const Page = require('./Page');
-const Story = require('./Story')
+const Story = require('./Story');
 let CommonActions = require('../utils/CommonActions.js');
 
 /**
