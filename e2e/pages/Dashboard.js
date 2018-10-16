@@ -123,5 +123,11 @@ class Dashboard extends Page {
         dashboard.clickCreateSubmit();
         return new Workspaces();
     }
+
+    openProjectById(projectId) {
+        super.open(`/n/projects/${projectId}`);
+        return new Project();
+    }
+
 }
 module.exports = Dashboard;
