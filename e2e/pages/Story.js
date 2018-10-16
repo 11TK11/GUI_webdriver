@@ -1,6 +1,6 @@
 const Page = require('./Page');
 const StoryTask = require('./StoryTask');
-let CommonActions = require('../utils/CommonActions.js');
+let CommonActions = require('../core/ui/CommonActions.js');
 /**
  * this class contains methods of dashboard.
  */

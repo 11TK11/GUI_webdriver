@@ -1,5 +1,5 @@
 const Page = require('./Page');
-let CommonActions = require('../utils/CommonActions.js');
+let CommonActions = require('../core/ui/CommonActions.js');
 /**
  * Page object to create task
  */

@@ -1,7 +1,7 @@
 const Page = require('./Page');
 const Workspaces = require('./Workspaces');
 const Project = require('./Project');
-let CommonActions = require('../utils/CommonActions.js');
+let CommonActions = require('../core/ui/CommonActions.js');
 
 /**
  * this class contains methods of dashboard.
