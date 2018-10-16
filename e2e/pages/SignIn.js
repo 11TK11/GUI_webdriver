@@ -1,8 +1,7 @@
 const Page = require('./Page');
 const Dashboard = require('./Dashboard');
-let CommonActions = require('../utils/CommonActions.js');
-const CookieManager = require('../cookies/CookieManager');
-const SignOut = require('./SignOut');
+let CommonActions = require('../core/ui/CommonActions.js');
+const CookieManager = require('../core/ui/CookieManager');
 
 /**
  * this class contains methods of SignIn.
@@ -15,21 +14,21 @@ class SignIn extends Page {
         this.passwordTextField = '#credentials_password';
         this.signInButton = '.app_signin_action_button';
     }
-  
+
     open() {
         super.open('/signin');
     }
 
     setUserNameTextField(username) {
-        CommonActions.waitAndSetValue(this.userNameTextField,username);
+        CommonActions.waitAndSetValue(this.userNameTextField, username);
     }
-  
+
     clickNextButton() {
         CommonActions.waitAndClick(this.nextButton);
     }
 
     setPasswordPassField(password) {
-        CommonActions.waitAndSetValue(this.passwordTextField,password);
+        CommonActions.waitAndSetValue(this.passwordTextField, password);
     }
 
     /**
@@ -56,18 +55,19 @@ class SignIn extends Page {
     }
 
     /**
-         * Smart method for login
-         * @param userName to login with
-         * @param password to login with
-         */
-    static newCredentials (userName, password){
+     * Smart method for login
+     * @param userName to login with
+     * @param password to login with
+     */
+    static newCredentials(userName, password) {
         var currentUserSession = CookieManager.getUserCookie();
         //Check if user username is logged already.
-        if (typeof userName !== currentUserSession){
-            console.log('User logged was:'+' '+currentUserSession);
+        if (typeof userName !== currentUserSession) {
+            browser.log('User logged was:' + ' ' + currentUserSession);
             CookieManager.deleteUserCookie(currentUserSession);
         }
         return this.loginAs(userName, password);
     }
 }
+
 module.exports = SignIn;

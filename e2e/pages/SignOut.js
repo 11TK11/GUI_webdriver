@@ -1,6 +1,5 @@
 const Page = require('./Page');
-let CommonActions = require('../utils/CommonActions.js');
-const CookieManager = require('../cookies/CookieManager');
+let CommonActions = require('../core/ui/CommonActions.js');
 
 /**
  * this class contains methods of SignOut.
@@ -26,4 +25,5 @@ class SignOut extends Page {
         super.open('/signin?signin_with_different=true');
     }
 }
+
 module.exports = SignOut;
