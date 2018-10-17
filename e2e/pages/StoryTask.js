@@ -1,5 +1,5 @@
 const Page = require('./Page');
-let CommonActions = require('../core/ui/CommonActions.js');
+const CommonActions = require('../core/ui/CommonActions.js');
 /**
  * Page object to create task
  */
@@ -26,6 +26,7 @@ class StoryTask extends Page {
     clickSaveStoryChanges() {
         CommonActions.waitAndClick(this.saveStoryChanges);
     }
+    //TODO change input for a json value
     createTasks(tasksList) {
         this.clickStartAddingTaskButton();
         tasksList.forEach(task => {

@@ -1,6 +1,6 @@
 const Page = require('./Page');
 const Dashboard = require('./Dashboard');
-let CommonActions = require('../core/ui/CommonActions.js');
+const CommonActions = require('../core/ui/CommonActions.js');
 const CookieManager = require('../core/ui/CookieManager');
 
 /**
@@ -59,6 +59,7 @@ class SignIn extends Page {
      * @param userName to login with
      * @param password to login with
      */
+    //TODO join with loginAs method
     static newCredentials(userName, password) {
         var currentUserSession = CookieManager.getUserCookie();
         //Check if user username is logged already.

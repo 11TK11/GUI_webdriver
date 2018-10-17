@@ -1,5 +1,5 @@
 const Page = require('./Page');
-let CommonActions = require('../core/ui/CommonActions.js');
+const CommonActions = require('../core/ui/CommonActions.js');
 
 /**
  * this class contains methods of SignOut.
@@ -7,8 +7,8 @@ let CommonActions = require('../core/ui/CommonActions.js');
 class SignOut extends Page {
     constructor() {
         super();
-        this.userNameProfileLabelButton = '//button[@aria-label="Profile Dropdown"]';
-        this.signOutButton = '//button[@data-aid="ProfileDropdown__signout"]';
+        this.userNameProfileLabelButton = 'button[aria-label="Profile Dropdown"]';
+        this.signOutButton = 'button[data-aid="ProfileDropdown__signout"]';
     }
 
     clickProfileButton() {
@@ -19,6 +19,7 @@ class SignOut extends Page {
      * method which do the sign out.
      * @returns the main signin page
      */
+    //TODO move function to new class Toolbar
     clickSignOutButton() {
         CommonActions.waitAndClick(this.signOutButton);
         //back signin link

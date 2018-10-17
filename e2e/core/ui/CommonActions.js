@@ -1,4 +1,5 @@
 'use strict';
+//TODO set uppercase const
 const timeToWait = 30000;
 const pauseTime = 20000;
 
@@ -11,6 +12,7 @@ class CommonActions {
      * Method to wait for an element to be visible to get the text.
      * @param elementCSS WebElement locator.
      */
+    //TODO remove wait from methods names
     static waitAndGetText(elementCSS) {
         browser.waitForVisible(elementCSS,timeToWait);
         return browser.getText(elementCSS);

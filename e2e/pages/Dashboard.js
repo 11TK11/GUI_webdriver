@@ -1,7 +1,7 @@
 const Page = require('./Page');
 const Workspaces = require('./Workspaces');
 const Project = require('./Project');
-let CommonActions = require('../core/ui/CommonActions.js');
+const CommonActions = require('../core/ui/CommonActions.js');
 
 /**
  * this class contains methods of dashboard.
@@ -16,7 +16,7 @@ class Dashboard extends Page {
         this.workspaceNameTextField = '.tc-form__input';
         this.createSubmit = '.pvXpn__Button--positive';
         this.newAccountName = '.tc-account-creator__name';
-        this.projectName = '//input[@name="project_name"]';
+        this.projectName = 'input[name="project_name"]';
         this.createAccountButton = '.tc-account-selector__create-account';
         this.accountListSelector = '.tc-account-selector__option-list';
     }
@@ -95,6 +95,7 @@ class Dashboard extends Page {
      */
     createProject(projectValue) {
         this.open();
+        //TODO move to test
         this.clickCreateProjectButton();
         let fillProjectInformation = {
             'name': () => this.setProjectNameTextField(projectValue.name),
@@ -113,6 +114,7 @@ class Dashboard extends Page {
      * @param workspaceName for the new workspace
      * @returns {Workspaces} return an instance of workspace
      */
+    //TODO move to workspace.js
     createWorkspace(workspaceName)
     {
         let dashboard = new Dashboard();

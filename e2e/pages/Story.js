@@ -1,6 +1,6 @@
 const Page = require('./Page');
 const StoryTask = require('./StoryTask');
-let CommonActions = require('../core/ui/CommonActions.js');
+const CommonActions = require('../core/ui/CommonActions.js');
 /**
  * this class contains methods of dashboard.
  */
@@ -24,6 +24,7 @@ class Story extends Page {
         CommonActions.waitAndClick(this.saveStoryButton);
         return new StoryTask();
     }
+    //TODO change input for a json value
     showStoryFields(storyName) {
         CommonActions.waitAndDoubleClick(`.tracker_markup=${storyName}`);
         return new StoryTask();

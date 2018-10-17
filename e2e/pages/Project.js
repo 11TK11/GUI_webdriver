@@ -1,11 +1,12 @@
 const Page = require('./Page');
 const Story = require('./Story');
-let CommonActions = require('../core/ui/CommonActions.js');
+const CommonActions = require('../core/ui/CommonActions.js');
 
 /**
  * this class contains methods of project.
  */
 class Project extends Page {
+    //TODO remove constructor and open methods
     constructor() {
         super();
     }
@@ -13,7 +14,7 @@ class Project extends Page {
         super.open(`/n/projects/${projectId}`);
         return new Story();
     }
-
+    //TODO improve method
     getStoryPageOfProject() {
         return new Story();
     }

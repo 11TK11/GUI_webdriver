@@ -31,6 +31,7 @@ describe('pivotal tracker page new project', () => {
     it('should create a new private project with first account', () => {
         project = dashboard.createProject(projectData1);
         expect(`${projectData1.name} - Pivotal Tracker`).to.equal(project.getProjectName());
+        //TODO add assert on dashboard page
     });
     it('should create a new public project with second account', () => {
         project = dashboard.createProject(projectData2);
