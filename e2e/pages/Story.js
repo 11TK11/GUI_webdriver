@@ -7,15 +7,11 @@ const CommonActions = require('../core/ui/CommonActions.js');
 class Story extends Page {
     constructor() {
         super();
-        this.addStoryButton = 'button[data-aid="Sidebar__AddStoryButton"]';
         this.storyTitleField = 'textArea[aria-label="story title"]';
         this.saveStoryButton = 'button[class="autosaves button std save"]';
     }
     open(projectId) {
         super.open(`/n/projects/${projectId}`);
-    }
-    clickAddStoryButton() {
-        CommonActions.waitAndClick(this.addStoryButton);
     }
     setStoryTitleField(storyTitle) {
         CommonActions.waitAndSetValue(this.storyTitleField,storyTitle);
