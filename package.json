@@ -20,6 +20,7 @@
     "webdriverio": "^4.13.2"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "selenium-standalone": "^6.15.3"
   }
 }
