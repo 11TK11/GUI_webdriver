@@ -1,21 +1,26 @@
 const SingIn = require('../pages/SignIn');
-let username = 'kevinherrera2';
-let password = '70723844';
-let projectID = '2203114';
+const APIrequest = require('../rest-api/RequestManager');
+const config = require('../../testconfig.json');
 describe('pivotal tracker project page add story', () => {
     let project;
-    let dashboard;
     let story;
-
+    let projectID ;
     before(() => {
-        dashboard = SingIn.loginAs(username, password);
+        let postProjectData = { name:'project created from api '+ new Date().getMilliseconds()};
+        let response = browser.call(() => {return APIrequest.postRequest('projects', postProjectData);});
+        projectID = response.data.id;
+        let dashboard = SingIn.loginAs(config.username, config.password);
         project = dashboard.openProjectById(projectID);
     });
 
     it('should create a new private project with first account', () => {
-        story = project.getStoryPageOfProject();
-        story.clickAddStoryButton();
-        story.setStoryTitleField('story test');
+        story = project.clickAddStoryButton();
+        story.setStoryTitleField('story test wdio');
         story.clickSaveStoryButton();
+        // add asserts
+    });
+
+    after(() =>{
+        APIrequest.DelRequest(`projects/${projectID}`);
     });
 });

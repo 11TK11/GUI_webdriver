@@ -1,21 +1,12 @@
-const Page = require('./Page');
 const Story = require('./Story');
-let CommonActions = require('../core/ui/CommonActions.js');
+const CommonActions = require('../core/ui/CommonActions.js');
 
 /**
  * this class contains methods of project.
  */
-class Project extends Page {
+class Project {
     constructor() {
-        super();
-    }
-    open(projectId) {
-        super.open(`/n/projects/${projectId}`);
-        return new Story();
-    }
-
-    getStoryPageOfProject() {
-        return new Story();
+        this.addStoryButton = 'button[data-aid="Sidebar__AddStoryButton"]';
     }
     /**
      * this method allows to check if the project
@@ -25,5 +16,11 @@ class Project extends Page {
     getProjectName() {
         return CommonActions.waitGetTitle();
     }
+    clickAddStoryButton() {
+        CommonActions.waitAndClick(this.addStoryButton);
+        return new Story();
+    }
+
+
 }
 module.exports = Project;

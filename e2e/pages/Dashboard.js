@@ -1,14 +1,13 @@
-const Page = require('./Page');
 const Workspaces = require('./Workspaces');
 const Project = require('./Project');
-let CommonActions = require('../core/ui/CommonActions.js');
+const CommonActions = require('../core/ui/CommonActions.js');
+const config = require('../../testconfig.json');
 
 /**
  * this class contains methods of dashboard.
  */
-class Dashboard extends Page {
+class Dashboard {
     constructor() {
-        super();
         this.createProjectButton = '#create-project-button';
         this.createWorkspaceButton = '#create-workspace-button';
         this.accountSelector = '.tc-account-selector';
@@ -16,13 +15,9 @@ class Dashboard extends Page {
         this.workspaceNameTextField = '.tc-form__input';
         this.createSubmit = '.pvXpn__Button--positive';
         this.newAccountName = '.tc-account-creator__name';
-        this.projectName = '//input[@name="project_name"]';
+        this.projectName = 'input[name="project_name"]';
         this.createAccountButton = '.tc-account-selector__create-account';
         this.accountListSelector = '.tc-account-selector__option-list';
-    }
-
-    open() {
-        super.open('/dashboard');
     }
 
     clickCreateProjectButton() {
@@ -94,8 +89,6 @@ class Dashboard extends Page {
      * @returns {Project} instance of page project
      */
     createProject(projectValue) {
-        this.open();
-        this.clickCreateProjectButton();
         let fillProjectInformation = {
             'name': () => this.setProjectNameTextField(projectValue.name),
             'account': () => this.setAccountItem(projectValue.account),
@@ -116,7 +109,6 @@ class Dashboard extends Page {
     createWorkspace(workspaceName)
     {
         let dashboard = new Dashboard();
-        dashboard.open();
         dashboard.clickWorkspaceTab();
         dashboard.clickCreateWorkspaceButton();
         dashboard.setWorkspaceNameTextField(workspaceName);
@@ -125,7 +117,7 @@ class Dashboard extends Page {
     }
 
     openProjectById(projectId) {
-        super.open(`/n/projects/${projectId}`);
+        browser.url(config.home_page_url.concat(`/n/projects/${projectId}`));
         return new Project();
     }
 

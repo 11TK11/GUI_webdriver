@@ -1,21 +1,12 @@
-const Page = require('./Page');
 const StoryTask = require('./StoryTask');
-let CommonActions = require('../core/ui/CommonActions.js');
+const CommonActions = require('../core/ui/CommonActions.js');
 /**
  * this class contains methods of dashboard.
  */
-class Story extends Page {
+class Story {
     constructor() {
-        super();
-        this.addStoryButton = 'button[data-aid="Sidebar__AddStoryButton"]';
         this.storyTitleField = 'textArea[aria-label="story title"]';
         this.saveStoryButton = 'button[class="autosaves button std save"]';
-    }
-    open(projectId) {
-        super.open(`/n/projects/${projectId}`);
-    }
-    clickAddStoryButton() {
-        CommonActions.waitAndClick(this.addStoryButton);
     }
     setStoryTitleField(storyTitle) {
         CommonActions.waitAndSetValue(this.storyTitleField,storyTitle);
@@ -24,6 +15,7 @@ class Story extends Page {
         CommonActions.waitAndClick(this.saveStoryButton);
         return new StoryTask();
     }
+    // task: change input for a json value
     showStoryFields(storyName) {
         CommonActions.waitAndDoubleClick(`.tracker_markup=${storyName}`);
         return new StoryTask();

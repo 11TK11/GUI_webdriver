@@ -17,4 +17,6 @@ describe('pivotal tracker page', () => {
         workspace = dashboard.createWorkspace(workspaceName);
         expect(workspaceName).to.equal(workspace.getWorkspaceName());
     });
+
+    //add after delete workspace from api
 });
