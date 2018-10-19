@@ -1,7 +1,6 @@
 /**
  * this class handle the cookies.
  */
-//TODO remove class
 class CookieManager {
 
     /**

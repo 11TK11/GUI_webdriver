@@ -17,7 +17,7 @@ describe('pivotal tracker project page add story', () => {
         story = project.clickAddStoryButton();
         story.setStoryTitleField('story test wdio');
         story.clickSaveStoryButton();
-        //TODO add assert
+        // add asserts
     });
 
     after(() =>{

@@ -20,7 +20,7 @@ class Story extends Page {
         CommonActions.waitAndClick(this.saveStoryButton);
         return new StoryTask();
     }
-    //TODO change input for a json value
+    // task: change input for a json value
     showStoryFields(storyName) {
         CommonActions.waitAndDoubleClick(`.tracker_markup=${storyName}`);
         return new StoryTask();

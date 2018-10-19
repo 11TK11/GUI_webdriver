@@ -106,11 +106,9 @@ class Dashboard {
      * @param workspaceName for the new workspace
      * @returns {Workspaces} return an instance of workspace
      */
-    //TODO move to new class - workspace.js
     createWorkspace(workspaceName)
     {
         let dashboard = new Dashboard();
-        dashboard.open();
         dashboard.clickWorkspaceTab();
         dashboard.clickCreateWorkspaceButton();
         dashboard.setWorkspaceNameTextField(workspaceName);

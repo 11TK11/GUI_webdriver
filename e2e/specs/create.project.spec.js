@@ -1,6 +1,6 @@
 const SingIn = require('../pages/SignIn');
 const APIrequest = require('../rest-api/RequestManager');
-const config = require('../../testconfig.json');
+const config = require('../../config.json');
 describe('pivotal tracker page create new project', () => {
 
     let dashboard;
@@ -16,10 +16,7 @@ describe('pivotal tracker page create new project', () => {
         dashboard.clickCreateProjectButton();
         let project = dashboard.createProject(projectData1);
         expect(`${projectData1.name} - Pivotal Tracker`).to.equal(project.getProjectName());
-        //TODO add assert on dashboard page using locators
     });
-
-    //TODO create 1 project more on the same test
 
     after(() =>{
         let projectID1;
@@ -33,6 +30,5 @@ describe('pivotal tracker page create new project', () => {
         });
         browser.call(() => APIrequest.DelRequest(`projects/${projectID1}`));
         //browser.call(() => APIrequest.DelRequest(`projects/${projectID2}`));
-
     });
 });

@@ -18,5 +18,5 @@ describe('pivotal tracker page', () => {
         expect(workspaceName).to.equal(workspace.getWorkspaceName());
     });
 
-    //TODO after delete workspace from api
+    //add after delete workspace from api
 });

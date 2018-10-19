@@ -11,8 +11,8 @@ describe('pivotal tracker project page add task to story', () => {
     before(() => {
         dashboard = SingIn.loginAs(username, password);
         project = dashboard.openProjectById(projectID);
-        //TODO create project from api
-        //TODO create story from api
+        // create project from api
+        // create story from api
     });
 
     it('should create a new task on the of this project', () => {
@@ -23,5 +23,5 @@ describe('pivotal tracker project page add task to story', () => {
         storyTasks.clickSaveAndAddNewTaskButton();
     });
 
-    //TODO after delete project from api
+    // after delete project from api
 });

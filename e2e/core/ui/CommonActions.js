@@ -1,7 +1,6 @@
 'use strict';
-//TODO set uppercase const
-const timeToWait = 30000;
-const pauseTime = 20000;
+const TIME_TO_WAIT = 30000;
+const PAUSE_TIME = 20000;
 
 /**
  * CommonActions class with CommonActions Methods.
@@ -12,9 +11,8 @@ class CommonActions {
      * Method to wait for an element to be visible to get the text.
      * @param elementCSS WebElement locator.
      */
-    //TODO remove wait from methods names
     static waitAndGetText(elementCSS) {
-        browser.waitForVisible(elementCSS,timeToWait);
+        browser.waitForVisible(elementCSS, TIME_TO_WAIT);
         return browser.getText(elementCSS);
     }
 
@@ -24,7 +22,7 @@ class CommonActions {
      * @param value
      */
     static waitAndSetValue(elementCSS, value) {
-        browser.waitForVisible(elementCSS,timeToWait);
+        browser.waitForVisible(elementCSS, TIME_TO_WAIT);
         browser.setValue(elementCSS,value);
     }
 
@@ -33,7 +31,7 @@ class CommonActions {
      * @param elementCSS
      */
     static waitAndClick(elementCSS) {
-        browser.waitForVisible(elementCSS,timeToWait);
+        browser.waitForVisible(elementCSS,TIME_TO_WAIT);
         browser.click(elementCSS);
     }
 
@@ -42,7 +40,7 @@ class CommonActions {
      * @param elementCSS
      */
     static waitAndDoubleClick(elementCSS) {
-        browser.waitForVisible(elementCSS,timeToWait);
+        browser.waitForVisible(elementCSS,TIME_TO_WAIT);
         browser.doubleClick(elementCSS);
     }
     /**
@@ -79,7 +77,7 @@ class CommonActions {
      * @param elementCSS
      */
     static waitVisibleElement(elementCSS) {
-        browser.waitForVisible(elementCSS, timeToWait);
+        browser.waitForVisible(elementCSS, TIME_TO_WAIT);
     }
 
     /**
@@ -88,7 +86,7 @@ class CommonActions {
      * @returns {*}
      */
     static waitGetTitle() {
-        browser.pause(pauseTime);
+        browser.pause(PAUSE_TIME);
         return browser.getTitle();
     }
 }

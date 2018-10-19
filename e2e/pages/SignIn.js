@@ -1,22 +1,15 @@
-const Page = require('./Page');
 const Dashboard = require('./Dashboard');
 const CommonActions = require('../core/ui/CommonActions.js');
-const CookieManager = require('../core/ui/CookieManager');
-
+const Config = require('../../config.json');
 /**
  * this class contains methods of SignIn.
  */
-class SignIn extends Page {
+class SignIn {
     constructor() {
-        super();
         this.userNameTextField = '#credentials_username';
         this.nextButton = '.app_signin_action_button';
         this.passwordTextField = '#credentials_password';
         this.signInButton = '.app_signin_action_button';
-    }
-
-    open() {
-        super.open('/signin');
     }
 
     setUserNameTextField(username) {
@@ -46,8 +39,8 @@ class SignIn extends Page {
      * @param password to login with
      */
     static loginAs(userName, password) {
+        browser.url(Config.home_page_url.concat('/signin'));
         let signIn = new SignIn();
-        signIn.open();
         signIn.setUserNameTextField(userName);
         signIn.clickNextButton();
         signIn.setPasswordPassField(password);
@@ -59,13 +52,13 @@ class SignIn extends Page {
      * @param userName to login with
      * @param password to login with
      */
-    //TODO join with loginAs method
+    //join with loginAs method
     static newCredentials(userName, password) {
-        var currentUserSession = CookieManager.getUserCookie();
+        var currentUserSession = browser.getCookie('lastuser').value;
         //Check if user username is logged already.
         if (typeof userName !== currentUserSession) {
             browser.log('User logged was:' + ' ' + currentUserSession);
-            CookieManager.deleteUserCookie(currentUserSession);
+            browser.deleteCookie();
         }
         return this.loginAs(userName, password);
     }
