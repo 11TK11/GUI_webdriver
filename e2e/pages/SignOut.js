@@ -1,5 +1,5 @@
 const CommonActions = require('../core/ui/CommonActions.js');
-
+const config = require('../../config.json');
 /**
  * this class contains methods of SignOut.
  */
@@ -21,7 +21,7 @@ class SignOut {
         //move function to new class Toolbar
         CommonActions.waitAndClick(this.signOutButton);
         //back signin link
-        super.open('/signin?signin_with_different=true');
+        browser.uri(config.home_page_url.concat('/signin?signin_with_different=true'));
     }
 }
 

@@ -1,5 +1,5 @@
 const axios = require('axios');
-const config = require('../../testconfig.json');
+const config = require('../../config.json');
 axios.defaults.baseURL = config.base_url_api;
 axios.defaults.headers.common['X-TrackerToken'] = config.api_token;
 axios.defaults.headers.post['Content-Type'] = 'application/json';

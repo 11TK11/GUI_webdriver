@@ -22,13 +22,13 @@ describe('pivotal tracker page create new project', () => {
         let projectID1;
         //let projectID2;
         //endpoint to get all user projects
-        let response = browser.call(() => APIrequest.GetRequest('projects'));
+        let response = browser.call(() => {return APIrequest.GetRequest('projects');});
         Object.values(response.data).map((project) => {
             if (projectData1.name === project.name) {
                 projectID1 = project.id;
             }
         });
-        browser.call(() => APIrequest.DelRequest(`projects/${projectID1}`));
+        browser.call(() => {return APIrequest.DelRequest(`projects/${projectID1}`);});
         //browser.call(() => APIrequest.DelRequest(`projects/${projectID2}`));
     });
 });
