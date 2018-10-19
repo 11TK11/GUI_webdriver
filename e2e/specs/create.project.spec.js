@@ -29,6 +29,5 @@ describe('pivotal tracker page create new project', () => {
             }
         });
         browser.call(() => {return APIrequest.DelRequest(`projects/${projectID1}`);});
-        //browser.call(() => APIrequest.DelRequest(`projects/${projectID2}`));
     });
 });
