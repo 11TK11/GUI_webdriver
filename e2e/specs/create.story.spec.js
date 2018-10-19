@@ -7,7 +7,7 @@ describe('pivotal tracker project page add story', () => {
     let projectID ;
     before(() => {
         let postProjectData = { name:'project created from api '+ new Date().getMilliseconds()};
-        let response = browser.call(() => APIrequest.PostRequest('projects', postProjectData));
+        let response = browser.call(() => APIrequest.postRequest('projects', postProjectData));
         projectID = response.data.id;
         let dashboard = SingIn.loginAs(config.username, config.password);
         project = dashboard.openProjectById(projectID);

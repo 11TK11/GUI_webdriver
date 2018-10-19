@@ -27,7 +27,7 @@ describe('pivotal tracker page create new project', () => {
         //endpoint to get all user projects
         let response = browser.call(() => APIrequest.GetRequest('projects'));
         Object.values(response.data).map((project) => {
-            if (projectData1.name == project.name) {
+            if (projectData1.name === project.name) {
                 projectID1 = project.id;
             }
         });

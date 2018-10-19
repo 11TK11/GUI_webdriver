@@ -10,6 +10,7 @@
   },
   "extends": "eslint:recommended",
   "parserOptions": {
+    "ecmaVersion": 8,
     "sourceType": "module"
   },
   "rules": {
@@ -57,12 +58,12 @@
       "error",
       "always"
     ],
-    "curly": "error"
+    "curly": "error",
+    "eqeqeq": "error"
   },
   "globals": {
     "sr": true,
     "config": true,
-    "expect": true,
-    "theme": true
+    "expect": true
   }
 }
