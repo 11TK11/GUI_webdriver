@@ -20,6 +20,7 @@ exports.config = {
         //'./e2e/specs/create.task.spec.js'
         //'e2e/specs/create.story.spec.js'
         'e2e/specs/create.project.spec.js'
+        //'e2e/specs/create.workspace.spec.js'
     ],
     // Patterns to exclude.
     exclude: [

@@ -61,6 +61,15 @@ class CommonActions {
         browser.waitForExist(elementCSS);
         return browser.element(elementCSS);
     }
+    /**
+     * Method to return a element.
+     * @param elementCSS WebElement locator.
+     * @returns WebElement.
+     */
+    static getElements(elementCSS) {
+        browser.waitForExist(elementCSS);
+        return browser.elements(elementCSS);
+    }
 
     /**
      * Method to set WebElement value.
@@ -88,6 +97,11 @@ class CommonActions {
     static waitGetTitle() {
         browser.pause(PAUSE_TIME);
         return browser.getTitle();
+    }
+
+    static waitAndGetValue(elementCSS) {
+        browser.waitForExist(elementCSS);
+        browser.getValue(elementCSS);
     }
 }
 

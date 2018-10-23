@@ -7,6 +7,7 @@ class Story {
     constructor() {
         this.storyTitleField = 'textArea[aria-label="story title"]';
         this.saveStoryButton = 'button[class="autosaves button std save"]';
+        this.startAddingTaskButton = 'div[data-aid="TaskAdd"]';
     }
     setStoryTitleField(storyTitle) {
         CommonActions.waitAndSetValue(this.storyTitleField,storyTitle);
@@ -15,9 +16,12 @@ class Story {
         CommonActions.waitAndClick(this.saveStoryButton);
         return new StoryTask();
     }
-    // task: change input for a json value
+    // story name should be a json e.g. {name:'story test'}
     showStoryFields(storyName) {
-        CommonActions.waitAndDoubleClick(`.tracker_markup=${storyName}`);
+        CommonActions.waitAndDoubleClick(`.tracker_markup=${storyName.name}`);
+    }
+    clickAddTaskButton() {
+        CommonActions.waitAndClick(this.startAddingTaskButton);
         return new StoryTask();
     }
 }
