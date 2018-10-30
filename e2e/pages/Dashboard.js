@@ -13,20 +13,24 @@ class Dashboard {
         this.workspacesTab = 'span[class="Dashboard__Tabs__tab"]';
     }
 
-    clickCreateProjectButton() {
-        CommonActions.waitAndClick(this.createProjectButton);
+    static clickCreateProjectButton() {
+        CommonActions.waitAndClick('#create-project-button');
         return new Project();
     }
 
-    clickCreateWorkspaceButton() {
-        CommonActions.waitAndClick(this.workspacesTab);
-        CommonActions.waitAndClick(this.createWorkspaceButton);
+    static clickCreateWorkspaceButton() {
+        CommonActions.waitAndClick('#create-workspace-button');
         return new Workspaces();
     }
 
-    openProjectById(projectId) {
+    static switchTabs() {
+        CommonActions.waitAndClick('span[class="Dashboard__Tabs__tab"]');
+    }
+
+    static openProjectById(projectId) {
         browser.url(config.home_page_url.concat(`/n/projects/${projectId}`));
         return new Project();
     }
+
 }
 module.exports = Dashboard;

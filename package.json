@@ -15,11 +15,11 @@
     "chai": "^4.2.0",
     "eslint-plugin-webdriverio": "^1.0.1",
     "selenium-standalone": "^6.15.3",
-    "wdio-allure-reporter": "^0.6.2",
     "wdio-cucumber-framework": "^2.2.7",
     "wdio-eslint-service": "0.0.3",
     "wdio-mocha-framework": "^0.5.13",
     "wdio-sauce-service": "^0.4.8",
+    "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^4.13.2"
   }
 }

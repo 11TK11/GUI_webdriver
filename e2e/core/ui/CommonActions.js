@@ -74,10 +74,11 @@ class CommonActions {
     /**
      * Method to set WebElement value.
      * @param elementCSS WebElement locator.
+     * @param text to set
      */
-    static setInputTextField(elementCSS, value) {
+    static setInputTextField(elementCSS, text) {
         browser.waitForExist(elementCSS);
-        browser.element(elementCSS).setValue(value);
+        browser.element(elementCSS).setValue(text);
     }
 
     /**

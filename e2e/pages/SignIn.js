@@ -53,7 +53,7 @@ class SignIn {
      * @param password to login with
      */
     //join with loginAs method
-    static newCredentials(userName, password) {
+    static credentials(userName, password) {
         var currentUserSession = browser.getCookie('lastuser').value;
         //Check if user username is logged already.
         if (typeof userName !== currentUserSession) {
