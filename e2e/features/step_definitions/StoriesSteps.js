@@ -1,6 +1,6 @@
 const {Given, Then, When} = require('cucumber');
 const SingIn = require('../../pages/SignIn');
-const APIrequest = require('../../rest-api/RequestManager');
+const RequestManager = require('../../core/api/RequestManager');
 const config = require('../../../config.json');
 const CommonActions = require('../../core/ui/CommonActions.js');
 
@@ -11,7 +11,7 @@ let rowsHash;
 
 Given(/^user is on Pivotal Page$/, function () {
     let postProjectData = { name:'project created from api '+ new Date().getMilliseconds()};
-    let response = browser.call(() => APIrequest.postRequest('/projects', postProjectData));
+    let response = browser.call(() => RequestManager.post('/projects', postProjectData));
     projectID = response.data.id;
     let dashboard = SingIn.loginAs(config.username, config.password);
     project = dashboard.openProjectById(projectID);

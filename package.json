@@ -10,16 +10,15 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "axios": "^0.18.0",
     "chai": "^4.2.0",
     "eslint-plugin-webdriverio": "^1.0.1",
     "selenium-standalone": "^6.15.3",
-    "wdio-cucumber-framework": "^2.2.7",
+    "wdio-cucumber-framework": "^2.2.8",
     "wdio-eslint-service": "0.0.3",
-    "wdio-mocha-framework": "^0.5.13",
     "wdio-sauce-service": "^0.4.8",
     "wdio-spec-reporter": "^0.1.5",
-    "webdriverio": "^4.13.2"
+    "webdriverio": "^4.14.0"
   }
 }

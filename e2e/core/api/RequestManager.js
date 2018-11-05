@@ -1,11 +1,11 @@
 const axios = require('axios');
-const config = require('../../config.json');
+const config = require('../../../config.json');
 axios.defaults.baseURL = config.base_url_api;
 axios.defaults.headers.common['X-TrackerToken'] = config.api_token;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 class RequestManager {
-    static async postRequest(endpoint, body) {
+    static async post(endpoint, body) {
         return await axios({
             method: 'POST',
             url: axios.defaults.baseURL.concat(endpoint),
@@ -13,13 +13,13 @@ class RequestManager {
             responseType: 'json'
         });
     }
-    static async DelRequest(endpoint) {
+    static async delete(endpoint) {
         return await axios({
             method: 'DELETE',
             url: axios.defaults.baseURL.concat(endpoint),
         });
     }
-    static async GetRequest(endpoint) {
+    static async get(endpoint) {
         return await axios({
             method: 'GET',
             url: axios.defaults.baseURL.concat(endpoint),
